@@ -10,17 +10,17 @@ El siguiente trabajo consiste en realizar un Sistema de Recomendación de Pelíc
 - Hacer las transformaciones necesarias y unificar el dataset.
 - Llevar a cabo el desarrollo de la API a través de FastApi.
 - Ejecutar el deployment de la API en Deta.
-- Efectuar el Análisis exploratorio de datos (EDA) a los datasets.
+- Efectuar el Análisis Exploratorio de Datos (EDA) a los datasets.
 - Realizar el modelo de machine learning y realizar una interfaz gráfica con la librería Streamlit
 
 
 ## Fuente de datos
-Para realizar este trabajo se utlizaron los archivos ubicados en la carpeta Datasets que corresponden a informacion sobre series y peliculas de las plataformas de Amazon, Disney, Hulu y Netflix.
+Para realizar este trabajo se utilizaron los archivos ubicados en la carpeta Datasets que corresponden a informacion sobre series y peliculas de las plataformas de Amazon, Disney, Hulu y Netflix.
 
    
 Pasos a seguir:
 1. Transformaciones:
-Para ello utilicé Python , más especificamente las librerias pandas y numpy. Generé el archivo [df_plataforma_score.pickle](https://drive.google.com/file/d/1lZs5Lq_lC2r7IlWQduG-XLJFZ1IbgvWJ/view?usp=share_link) que se usará para las 4 consultas solicitadas en la API.
+Para ello utilicé Python , más especificamente las librería pandas. Generé el archivo [df_plataforma_score.pickle](https://drive.google.com/file/d/1lZs5Lq_lC2r7IlWQduG-XLJFZ1IbgvWJ/view?usp=share_link) que se usará para las 4 consultas solicitadas en la API.
 Adicionalmente generé los archivos [df_plataforma.pickle](https://drive.google.com/file/d/1-4G3TWU10SqsvPhb1htB4VTk_9zkwNdr/view?usp=share_link) y [df_score.pickle](https://drive.google.com/file/d/1yQeB0sXkCT1utPB-tLiIlg-SrFD6wfXT/view?usp=share_link) que son los que usaré en el EDA.
 
 2. Desarrollo API:
@@ -30,20 +30,19 @@ Para ello utilicé un entorno virtual donde instalé las librerías fastapi, uvi
 - get_score_count: Cantidad de películas por plataforma con un puntaje mayor a XX en determinado año.
 - get_count_platform: Cantidad de películas por plataforma con filtro de PLATAFORMA.
 - get_actor: Actor que más se repite según plataforma y año.
-Durante la etapa de desarrollo revisé el funcionamiento integral de la API y sus consultas de manera local desde la terminal con el comando uvicorn main:app --reload en el localhost http://127.0.0.1:8000/ .
+Durante la etapa de desarrollo revisé el funcionamiento integral de la API y sus consultas de manera local desde la terminal con el comando uvicorn main:app --reload en mi localhost.
 
 
 
 3. Deployment en Deta:
-Una vez comprobado el funcionamiento de la API con todas las consultas, se realiza el deploymente en Deta Space.
-Como primer paso hay que realizar una cuenta en Deta, luego crear una carpeta solo con los archivos main.py y requirements.txt y desde esa carpeta ejecutar los siguientes comandos en PowerShell (si su sistema operativo no es Windows consulte la documentación ):
+Una vez comprobado el funcionamiento de la API con todas las consultas, se realiza el deployment en Deta Space.
+Como primer paso se debe crear una cuenta, luego crear el archivo requirements.txt el cual contiene las librerías usadas en main.py.
 
-- iwr https://get.deta.dev/cli.ps1 -useb | iex -- Instalación del CLI.
-- space login -- Se ingresa el token generado en la web de Space Deta.
-- space new  -- Acaba de crear una nueva micro.
-- space push -- Se realiza el push del proyecto.
-- space release -- Se publica en la web de Deta Space
-Podés hacer click en los siguientes enlaces para probar cada una de las consultas detalladas anteriormente: [Deployment de mi API en Deta Space](https://deta.space/discovery/r/cwm6zqxu6a6htyxj)
+A continuación comparto los datos de mi deployment en Deta Space:
+
+- Usuario Deta Space: jonathan5785
+- Nombre del Proyecto: Proyecto1
+- [Deployment de mi API en Deta Space](https://deta.space/discovery/r/cwm6zqxu6a6htyxj)
 
 
 
